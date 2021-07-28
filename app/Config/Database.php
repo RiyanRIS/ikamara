@@ -27,15 +27,15 @@ class Database extends Config
 
 	/**
 	 * The default database connection.
-	 * mysql://babe28f7f51742:058d1521@us-cdbr-east-04.cleardb.com/heroku_c8b80388900f2d5?reconnect=true
+	 * mysql://bee9012d61b14e:6676658e@us-cdbr-east-04.cleardb.com/heroku_8b1ee20e3999fea?reconnect=true
 	 * @var array
 	 */ 
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'us-cdbr-east-04.cleardb.com',
-		'username' => 'babe28f7f51742',
-		'password' => '058d1521',
-		'database' => 'heroku_c8b80388900f2d5',
+		'username' => 'bee9012d61b14e',
+		'password' => '6676658e',
+		'database' => 'heroku_8b1ee20e3999fea',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
