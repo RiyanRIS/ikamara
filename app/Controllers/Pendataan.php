@@ -106,7 +106,6 @@ class Pendataan extends BaseController
     }else{
       $users = new UsersModel();
       $id = $this->session->get('id');
-      $id = 4;
       $data = $users->find($id);
 
       $title = "Registrasi IKAMARA Yogyakarta Berhasil";
@@ -240,7 +239,8 @@ class Pendataan extends BaseController
 
       $body .= "<br/>Salam hormat, admin Ikamara Yogyakarta";
 
-      $mail = $this->mailer($data['email'], $title, $body);
+      // $mail = $this->mailer($data['email'], $title, $body);
+      
       if(!$mail){
         echo $mail; die();
       }
