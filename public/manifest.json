@@ -1,0 +1,10 @@
+{
+  "name": "Ikamara Yogyakarta",
+  "short_name": "ikamara",
+  "theme_color": "#288bda",
+  "background_color": "#5eb0f1",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
