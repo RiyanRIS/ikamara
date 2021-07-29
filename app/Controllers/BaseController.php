@@ -217,16 +217,16 @@ class BaseController extends Controller
 		$mail->Password = getenv('MAILGUN_SMTP_PASSWORD'); 
 		$mail->SMTPSecure = 'tls'; 
 		
-		$mail->Host = 'smtp.mailgun.org';
-		$mail->Port = 587;
+		$mail->Host = getenv('MAILGUN_SMTP_SERVER');
+		$mail->Port = getenv('MAILGUN_SMTP_PORT');
 		
-		$mail->From = 'noreply@ikamara.org'; 
-		$mail->FromName = 'Ikamara Yogyakarta';
-		 
+		$mail->setFrom('noreply@ikamara.org', 'Ikamara Yogyakarta');
+
 		$mail->addAddress($to);
 		$mail->isHTML(true); 
 		$mail->Subject = $title;
 		$mail->Body = $body;
+
 		if(!$mail->send()) {  
 				return 'Mailer Error: ' . $mail->ErrorInfo . "n";
 		} else {
