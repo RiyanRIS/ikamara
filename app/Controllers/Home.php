@@ -14,22 +14,18 @@ class Home extends BaseController
 		return view('home', $data);
 	}
 
-	public function cekEmail()
-	{
-		$to = "xkunthil15@gmail.com";
-		$title = "Pendaftaran Ikamara Yogyakarta Berhasil";
-		$body = "Halo Riyan Terima kasih telah melakukan pendaftaran di Sistem Pendataan Anggota Ikamara Yogyakarta. Berikut data yang berhasil kami simpan: <br/><br/>";
-		// $body .= $this->getTableUsers();
-		$body .= "<br/><hr/><br/><p>Jika ini kesalahan atau kamu tidak merasa melakukan pendaftaran ini, silahkan hubungi kami di alamat email cs@ikamara.org</p>";
-		$body .= "<p>Atas perhatianya kami sampaikan terima kasih.</p><br/>";
-		$body .= "<p>Salam hormat, admin Ikamara Yogyakarta.</p>";
-		$kirim = $this->mailer($to, $title, $body);
-		echo $kirim;
-		echo "---<br>". getenv('MAILGUN_SMTP_LOGIN');
-		echo "---<br>". getenv('MAILGUN_SMTP_PASSWORD'); 
-		echo "---<br>". getenv('MAILGUN_SMTP_SERVER');
-		echo "---<br>". getenv('MAILGUN_SMTP_PORT');
-	}
+	// public function cekEmail()
+	// {
+	// 	$to = "xkunthil15@gmail.com";
+	// 	$title = "Pendaftaran Ikamara Yogyakarta Berhasil";
+	// 	$body = "Halo Riyan Terima kasih telah melakukan pendaftaran di Sistem Pendataan Anggota Ikamara Yogyakarta. Berikut data yang berhasil kami simpan: <br/><br/>";
+	// 	// $body .= $this->getTableUsers();
+	// 	$body .= "<br/><hr/><br/><p>Jika ini kesalahan atau kamu tidak merasa melakukan pendaftaran ini, silahkan hubungi kami di alamat email cs@ikamara.org</p>";
+	// 	$body .= "<p>Atas perhatianya kami sampaikan terima kasih.</p><br/>";
+	// 	$body .= "<p>Salam hormat, admin Ikamara Yogyakarta.</p>";
+	// 	$kirim = $this->mailer($to, $title, $body);
+	// 	echo $kirim;
+	// }
 
 	public function detail()
 	{
