@@ -151,24 +151,28 @@ class Pendataan extends BaseController
       'password'				  => password_hash($this->session->get('pw'), PASSWORD_DEFAULT),
       'created_at'				=> time(),
     ];
-    $lastid = $users->simpan($additionalData);
+    // $lastid = $users->simpan($additionalData);
+    $lastid = 1;
     if($lastid){
+      $this->session->set(['email' => 'xkunthil15@gmail.com']);
 
       $to = $this->session->get('email');
 
       $title = "Pendaftaran Ikamara Yogyakarta Berhasil";
       
-      $body = "Halo ".$this->session->get('nama').". Terima kasih telah melakukan pendaftaran di <a href=\"".base_url()."\">Sistem Pendataan Anggota Ikamara Yogyakarta</a>. Berikut data yang berhasil kami simpan: <br/>";
+      $body = "Halo ".$this->session->get('nama').". Terima kasih telah melakukan pendaftaran di Sistem Pendataan Anggota Ikamara Yogyakarta. Berikut data yang berhasil kami simpan: <br/><br/>";
       $body .= $this->getTableUsers();
-      $body .= "<br/><hr/><br/><p>Jika ini kesalahan atau kamu tidak merasa melakukan pendaftaran ini, silahkan hubungi kami di alamat email <a href=\"mailto:cs@ikamara.org\">cs@ikamara.org<a>.</p>";
+      $body .= "<br/><hr/><br/><p>Jika ini kesalahan atau kamu tidak merasa melakukan pendaftaran ini, silahkan hubungi kami di alamat email cs@ikamara.org</p>";
       $body .= "<p>Atas perhatianya kami sampaikan terima kasih.</p><br/>";
-      $body .= "<p>Salam hormat, admin <a href=\"".base_url()."\">Ikamara Yogyakarta</a>.</p>";
+      $body .= "<p>Salam hormat, admin Ikamara Yogyakarta.</p>";
 
       $mail = $this->mailer($to, $title, $body);
+
+      echo $mail;
       
-      $this->clearSession();
+      // $this->clearSession();
       
-      return redirect()->to(site_url("pendataan/berhasil"))->with("msg_success", "Berhasil menyimpan data");
+      // return redirect()->to(site_url("pendataan/berhasil"))->with("msg_success", "Berhasil menyimpan data");
     }else{
       echo "Error: Tidak dapat menyimpan data, harap ulangi beberapa saat lagi.";
     }
