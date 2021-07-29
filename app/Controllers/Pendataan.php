@@ -166,8 +166,10 @@ class Pendataan extends BaseController
 
       $mail = $this->mailer($to, $title, $body);
       $add_msg = "";
-      if($mail === true){
+      if($mail == true){
         $add_msg = " dan kami telah mengirim detail informasi ke email kamu.";
+      }else{
+        echo $mail; die();
       }
 
       $this->clearSession();
