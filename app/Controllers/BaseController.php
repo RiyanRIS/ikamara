@@ -100,6 +100,8 @@ class BaseController extends Controller
 	{
 		$additionalData = [
 			'email', 
+			'pw', 
+			'pw1', 
 			'nama', 
 			'tempat', 
 			'tanggal', 

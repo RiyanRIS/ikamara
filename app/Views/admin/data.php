@@ -7,7 +7,7 @@
 	<div class="container">
 		<h1 class="mt-5">Data Users</h1>
     <div class="table-responsive">
-      <table id="datatable" class="table table-bordered table-striped">
+      <table id="datatable" class="table small table-bordered table-striped">
         <thead>
           <tr>
             <th>Email</th>
@@ -30,14 +30,30 @@
           </tr>
         </thead>
         <tbody>
-        <?php foreach ($users as $key ) { 
-          $almaa = $key['ajalan'].", ".$key['akel']." ".$key['akec']." ".$key['akab']." ".$key['akod'];
-          $almab = $key['djalan'].", ".$key['dkel']." ".$key['dkec']." ".$key['dkab']." ".$key['dkod'];
+        <?php
+        $bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        
+        foreach ($users as $key ) { 
+          $almaa = $almab = "-";
+
+          $tanggal = date('d', strtotime($key['tanggal']));
+          $m = (int)date('m', strtotime($key['tanggal']));
+          $tahun = date('Y', strtotime($key['tanggal']));
+          $tanggal_lahir = $tanggal." ".$bulan[$m - 1]." ".$tahun;
+
+          if($key['jenis'] != "Alumni"){
+            $almab = $key['djalan'].". kel. ".$key['dkel'].", kec. ".$key['dkec'].", kab. ".$key['dkab'].". ".$key['dkod'];
+          }
+
+          if($key['jenis'] != "Masyarakat"){
+            $almaa = $key['ajalan'].". kel. ".$key['akel'].", kec. ".$key['akec'].". ".$key['akod'];
+
+          }
           ?>
           <tr>
             <td><?= $key['email'] ?></td>
-            <td><?= $key['nama'] ?></td>
-            <td><?= $key['tempat'] ?>, <?= $key['tanggal'] ?></td>
+            <td><?= ucwords($key['nama']) ?></td>
+            <td><?= ucwords($key['tempat']) ?>, <?= $tanggal_lahir ?></td>
             <td><?= $key['jenkel'] ?></td>
             <td><?= $key['agama'] ?></td>
             <td><?= $key['nohp'] ?></td>
@@ -71,6 +87,7 @@
 <script>
 $(document).ready(function() {
     $('#datatable').DataTable({
+      "aaSorting": [[1,'asc']],
       dom: 'Bfrtip',
       buttons: [{
         extend: 'excelHtml5',

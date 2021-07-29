@@ -21,6 +21,23 @@
 					</div>
 				</div>
 				<div class="mb-3 row">
+					<label for="pw" class="col-sm-2 col-form-label">Password*</label>
+					<div class="col-sm-10">
+						<input type="password" name="pw" class="form-control <?= (@$errors['pw']?'is-invalid':'') ?>" id="pw" placeholder="Password"
+							required="" value="<?= @$data['pw'] ?>">
+							<div class="invalid-feedback">
+								<?= @$errors['pw'] ?>
+							</div>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="pw1" class="col-sm-2 col-form-label">Konfirmasi Password*</label>
+					<div class="col-sm-10">
+						<input type="password" name="pw1" class="form-control" id="pw1" placeholder="Konfirmasi password"
+							required="" value="<?= @$data['pw1'] ?>">
+					</div>
+				</div>
+				<div class="mb-3 row">
 					<label for="nama" class="col-sm-2 col-form-label">Nama Lengkap*</label>
 					<div class="col-sm-10">
 						<input type="text" name="nama" class="form-control" id="nama" placeholder="tidak boleh nama panggilan"

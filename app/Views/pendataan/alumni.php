@@ -4,7 +4,7 @@
 
 <main class="flex-shrink-0 mt-5">
   <div class="container">
-    <?= form_open("pendataan/simpan", "autocomplete=\"off\"") ?>
+    <?= form_open("pendataan/verifikasi", "autocomplete=\"off\"") ?>
     <div class="card m-3">
       <div class="card-header">
         Detail Alumni
@@ -13,14 +13,14 @@
         <div class="mb-3 row">
           <label for="perusahaan" class="col-sm-2 col-form-label">Nama Perusahaan*</label>
           <div class="col-sm-10">
-            <input type="text" name="perusahaan" class="form-control" id="perusahaan" placeholder="Nama Perusahaan"
+            <input type="text" name="perusahaan" class="form-control" id="perusahaan" placeholder="Bekerja di ...."
               required="" autofocus="" value="<?= @$data['perusahaan'] ?>">
           </div>
         </div>
         <div class="mb-3 row">
           <label for="jabatan" class="col-sm-2 col-form-label">Jabatan*</label>
           <div class="col-sm-10">
-            <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="jabatan"
+            <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="Jabatan atau status pekerjaan"
               required="" value="<?= @$data['jabatan'] ?>">
           </div>
         </div>
@@ -35,7 +35,7 @@
         <br/>
         <h5>Detail Alamat</h5>
         <div class="mb-3 row">
-          <label for="jalan" class="col-sm-2 col-form-label">Alamat*</label>
+          <label for="jalan" class="col-sm-2 col-form-label">Alamat di Aceh Tenggara*</label>
           <div class="col-sm-10">
             <input type="text" name="ajalan" class="form-control" id="ajalan"
               placeholder="detail alamat lengkap (nama kampung, jalan dan nomor rumah)" required="" autofocus=""
@@ -64,8 +64,9 @@
         <div class="mb-3 row">
 					<label for="submit" class="col-sm-2 col-form-label"></label>
 					<div class="col-sm-10">
-						<button class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-						<a href="javascript:void()" onclick="window.history.go(-1); return false;" class="btn btn-warning"><i class="fa fa-arrow-alt-circle-left"></i> Kembali</a>
+            <a href="javascript:void()" onclick="window.history.go(-1); return false;" class="btn btn-warning"><i class="fa fa-arrow-alt-circle-left"></i> Kembali</a>
+            <button class="btn btn-primary"><i class="fa fa-arrow-alt-circle-right"></i> Selanjutnya</button>
+					
 					</div>
 				</div>
       </div>
