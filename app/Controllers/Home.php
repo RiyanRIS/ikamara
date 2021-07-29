@@ -25,6 +25,10 @@ class Home extends BaseController
 		$body .= "<p>Salam hormat, admin Ikamara Yogyakarta.</p>";
 		$kirim = $this->mailer($to, $title, $body);
 		echo $kirim;
+		echo "---<br>". getenv('MAILGUN_SMTP_LOGIN');
+		echo "---<br>". getenv('MAILGUN_SMTP_PASSWORD'); 
+		echo "---<br>". getenv('MAILGUN_SMTP_SERVER');
+		echo "---<br>". getenv('MAILGUN_SMTP_PORT');
 	}
 
 	public function detail()
