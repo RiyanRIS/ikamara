@@ -151,10 +151,8 @@ class Pendataan extends BaseController
       'password'				  => password_hash($this->session->get('pw'), PASSWORD_DEFAULT),
       'created_at'				=> time(),
     ];
-    // $lastid = $users->simpan($additionalData);
-    $lastid = 1;
+    $lastid = $users->simpan($additionalData);
     if($lastid){
-      $this->session->set(['email' => 'xkunthil15@gmail.com']);
 
       $to = $this->session->get('email');
 
@@ -167,12 +165,14 @@ class Pendataan extends BaseController
       $body .= "<p>Salam hormat, admin Ikamara Yogyakarta.</p>";
 
       $mail = $this->mailer($to, $title, $body);
+      $add_msg = "";
+      if($mail === true){
+        $add_msg = ", silahkan cek email kamu.";
+      }
 
-      echo $mail;
-      
-      // $this->clearSession();
-      
-      // return redirect()->to(site_url("pendataan/berhasil"))->with("msg_success", "Berhasil menyimpan data");
+      $this->clearSession();
+
+      return redirect()->to(site_url("pendataan/berhasil"))->with("msg_success", "Berhasil menyimpan data".$add_msg);
     }else{
       echo "Error: Tidak dapat menyimpan data, harap ulangi beberapa saat lagi.";
     }

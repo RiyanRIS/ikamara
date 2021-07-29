@@ -16,9 +16,12 @@ class Home extends BaseController
 
 	public function cekEmail()
 	{
-		$to = "xryn001@gmail.com";
-		$title = "Ini tes Title";
-		$body = "dan ini ters bodu";
+		$to = "xkunthil15@gmail.com";
+		$title = "Pendaftaran Ikamara Yogyakarta Berhasil";
+		$body = "Halo Riyan Terima kasih telah melakukan pendaftaran di Sistem Pendataan Anggota Ikamara Yogyakarta. Berikut data yang berhasil kami simpan: <br/><br/>";
+		$body .= "<br/><hr/><br/><p>Jika ini kesalahan atau kamu tidak merasa melakukan pendaftaran ini, silahkan hubungi kami di alamat email cs@ikamara.org</p>";
+		$body .= "<p>Atas perhatianya kami sampaikan terima kasih.</p><br/>";
+		$body .= "<p>Salam hormat, admin Ikamara Yogyakarta.</p>";
 		$kirim = $this->mailer($to, $title, $body);
 		echo $kirim;
 	}
