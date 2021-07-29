@@ -30,11 +30,7 @@ class AdminModel extends Model
   }
 
 	public function simpan($data){
-      try{
-          $query = $this->db->table($this->table)->insert($data);
-      }catch (\Exception $e){
-          die($e->getMessage());
-      }
+			$query = $this->db->table($this->table)->insert($data);
 			$id = $this->db->insertId($this->table);
 			return $id ?? false;
 	}
