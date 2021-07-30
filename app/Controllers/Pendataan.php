@@ -199,7 +199,6 @@ class Pendataan extends BaseController
       $users = new UsersModel();
       $id = $this->session->get('user_id');
       $jenis = $this->request->getPost('jenis');
-      echo $jenis; die();
       $additionalData = [
         'nama' 				      => $this->request->getPost('nama'),
         'tempat' 					  => $this->request->getPost('tempat'),
