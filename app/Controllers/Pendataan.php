@@ -199,6 +199,7 @@ class Pendataan extends BaseController
       $users = new UsersModel();
       $id = $this->session->get('user_id');
       $jenis = $this->request->getPost('jenis');
+      echo $jenis; die();
       $additionalData = [
         'nama' 				      => $this->request->getPost('nama'),
         'tempat' 					  => $this->request->getPost('tempat'),
@@ -219,6 +220,7 @@ class Pendataan extends BaseController
         $additionalData['djalan'] = $this->request->getPost('djalan');
         $additionalData['dkel'] = $this->request->getPost('dkel');
         $additionalData['dkec'] = $this->request->getPost('dkec');
+        $additionalData['dkab'] = $this->request->getPost('dkab');
         $additionalData['dkod'] = $this->request->getPost('dkod');
       }
 

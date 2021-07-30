@@ -16,8 +16,8 @@ $data['tahun'] = date("Y", strtotime($tgl));
 			</div>
 			<div class="card-body">
 				<?= form_open("simpan/datadiri", "autocomplete=\"off\"");
-				form_hidden("id", $data['id']);
-				form_hidden("jenis", $data['jenis']);
+				echo form_hidden("id", $data['id']);
+				echo form_hidden("jenis", $data['jenis']);
 				?>
 				<div class="mb-3 row">
 					<label for="email" class="col-sm-2 col-form-label">Email*</label>
