@@ -13,15 +13,15 @@ class Pendataan extends BaseController
       $this->session->set($this->request->getPost());
       // validate form input
       $this->validation->setRules([
-          'email' 						=> 'valid_email|is_unique[users.email]',
-          'pw'  => 'matches[pw1]'
+          'email' 		=> 'valid_email|is_unique[users.email]',
+          'pw'        => 'matches[pw1]'
       ],
       [   // Errors
           'email' => [
-              'valid_email'   => 'Email tidak valid',
+              'valid_email' => 'Email tidak valid',
               'is_unique'   => 'Email sudah terdaftar',
           ],
-          'pw' => [
+          'pw'    => [
               'matches' => 'Konfirmasi password belum tepat'
           ]
       ]);
